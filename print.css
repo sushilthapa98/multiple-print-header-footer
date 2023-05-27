@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+h1,
+p {
+  margin-top: 0;
+}
+
+.print {
+  width: 210mm;
+  min-height: 297mm;
+  page-break-after: always;
+  background-color: #fff;
+  border-collapse: collapse;
+}
+
+.print-header > tr > td,
+.print-footer > tr > td,
+.print-body > tr > td {
+  padding: 0;
+}
+
+.print-header > tr > td,
+.print-footer > tr > td {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.print-header > tr > td {
+  height: 1px; /*Fix for header scaling in firefox*/
+}
+
+.print-content {
+  vertical-align: top;
+}
+
+.print-footer {
+  height: 84px;
+}
+
+.print-content td {
+  page-break-inside: avoid;
+}
+
+@media print {
+  body {
+    background-color: #fff;
+  }
+
+  .print-footer td {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
